@@ -7,7 +7,7 @@ function ExpenseItem(props) {
 
   const [title, setTitle] = useState(props.title);
 
-  
+  //git test
   const clickHandler = () => {
     setTitle('Updated!');
     console.log(title);
