@@ -12,6 +12,11 @@ function ExpenseItem(props) {
     setTitle('Updated!');
     console.log(title);
   };
+  const year = props.date.getFullYear();
+  if(year!=props.filter)
+    return 0;
+  else
+    console.log(1);
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
