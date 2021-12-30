@@ -1,10 +1,15 @@
 import ExpenseItem from "./ExpenseItem";
 import './ExpenseGroup.css';
 import Card from "../UI/Card";
+import ExpensesFilter from "./ExpensesFilter";
 function ExpesnseGroup(props) {
   const expenses = props.group;
   return (
+    <div>
+      <ExpensesFilter/>
+    
     <Card className="expenses">
+    
     <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -21,6 +26,7 @@ function ExpesnseGroup(props) {
         date={expenses[2].date}
       ></ExpenseItem>
       </Card>
+      </div>
   );
 }
 export default ExpesnseGroup;

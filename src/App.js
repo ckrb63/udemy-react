@@ -25,9 +25,13 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = (expense) => {
+    console.log('here is app.js');
+    console.log(expense);
+  };
   return (
     <div className="App">
-      <NewExpensese/>
+      <NewExpensese onSaveExpense={addExpenseHandler}/>
       <ExpesnseGroup group={expenses}></ExpesnseGroup>
     </div>
   );
