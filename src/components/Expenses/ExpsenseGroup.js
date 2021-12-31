@@ -3,6 +3,7 @@ import "./ExpenseGroup.css";
 import Card from "../UI/Card";
 import React, { useState } from "react";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 function ExpesnseGroup(props) {
   const expenses = props.group;
   const [filterYear, setFilterYear] = useState("2021");
@@ -12,30 +13,17 @@ function ExpesnseGroup(props) {
   const filteredExpenses = expenses.filter((expense) => {
     return filterYear === expense.date.getFullYear().toString();
   });
-  let expenseContent = <p>Nothing!</p>;
-  if (filteredExpenses.length > 0) {
-    expenseContent = filteredExpenses.map((expense) => {
-      //if(filterYear==expense.date.getFullYear()){
-      return (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      );
-    });
-  }
+  //console.log(filterYear);
   return (
-    <div>
+    <li>
       <Card className="expenses">
         <ExpensesFilter
           selected={filterYear}
           onSelectYear={onSelectYearHandler}
         />
-        {expenseContent}
+        <ExpensesList item={filteredExpenses}/>
       </Card>
-    </div>
+    </li>
   );
 }
 export default ExpesnseGroup;
